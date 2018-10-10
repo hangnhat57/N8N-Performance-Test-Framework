@@ -17,8 +17,10 @@ services:
   grafana:
     image: nhatng/grafana
     environment:
-      - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_USERS_ALLOW_ORG_CREATE=false
       - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-worldmap-panel,grafana-piechart-panel,natel-influx-admin-panel
     links:
       - influxdb
@@ -26,8 +28,10 @@ services:
       - '3000:3000'
     volumes:
       - grafana_data:/var/lib/grafana
+      - grafana-conf:/etc/grafana/
 
 volumes:
   grafana_data: {}
+  grafana-conf: {}
   influxdb_data: {}
   collectd_data: {}

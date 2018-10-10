@@ -1,0 +1,11 @@
+{
+    "name": "ServerMetric",
+    "type": "influxdb",
+    "url": "http://influxdb:8086",
+    "access": "proxy",
+    "user": "$INFLUX_USER",
+    "password": "$INFLUX_PASSWORD",
+    "database": "collectd",
+    "basicAuth": false
+  }
+  
