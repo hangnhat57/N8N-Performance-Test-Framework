@@ -1,0 +1,33 @@
+version: '3.2'
+
+services:
+  influxdb:
+    image: nhatng/influxdb
+    environment:
+      - INFLUX_USER=admin
+      - INFLUX_PASSWORD=admin
+      - INFLUX_DB=jmeter
+    ports:
+      - '8086:8086'
+      - '8083:8083'
+      - "25826:25826/udp"
+    volumes:
+      - influxdb_data:/var/lib/influxdb
+      - collectd_data:/usr/local/opt/collectd
+  grafana:
+    image: nhatng/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-worldmap-panel,grafana-piechart-panel,natel-influx-admin-panel
+    links:
+      - influxdb
+    ports:
+      - '3000:3000'
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+volumes:
+  grafana_data: {}
+  influxdb_data: {}
+  collectd_data: {}
