@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   influxdb:
-    image: nhatng/influxdb
+    image: nhatng/influxdb:latest
     environment:
       - INFLUX_USER=admin
       - INFLUX_PASSWORD=admin
@@ -15,7 +15,7 @@ services:
       - influxdb_data:/var/lib/influxdb
       - collectd_data:/usr/local/opt/collectd
   grafana:
-    image: nhatng/grafana
+    image: nhatng/grafana:latest
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_SECURITY_ADMIN_USER=admin
