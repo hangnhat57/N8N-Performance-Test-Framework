@@ -15,7 +15,7 @@ services:
       - influxdb_data:/var/lib/influxdb
       - collectd_data:/usr/local/opt/collectd
   grafana:
-    build: ./grafana
+    image: nhatng/grafana
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_SECURITY_ADMIN_USER=admin
