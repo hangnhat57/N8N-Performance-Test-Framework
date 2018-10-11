@@ -5,6 +5,6 @@
   "access": "proxy",
   "user": "$INFLUX_USER",
   "password": "$INFLUX_PASSWORD",
-  "database": "sitespeedio",
+  "database": "sitespeed",
   "basicAuth": false
 }

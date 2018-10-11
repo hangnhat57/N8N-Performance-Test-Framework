@@ -1,0 +1,18 @@
+{
+  "browsertime": {
+    "iterations": 1,
+    "browser": "chrome",
+    "connectivity": {
+     "profile": "3g"
+    }
+  },
+  "webpagetest": {
+   "key":"-------------------",
+   "runs": 1
+  },
+
+ "influxdb": {
+  "host": "influxdb"
+ },
+  "mobile": true
+}

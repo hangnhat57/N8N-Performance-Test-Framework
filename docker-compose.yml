@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   influxdb:
-    build: ./influxdb
+    image: nhatng/influxdb
     environment:
       - INFLUX_USER=admin
       - INFLUX_PASSWORD=admin
@@ -15,7 +15,7 @@ services:
       - influxdb_data:/var/lib/influxdb
       - collectd_data:/usr/local/opt/collectd
   grafana:
-    build: ./grafana
+    image: nhatng/grafana
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_SECURITY_ADMIN_USER=admin
@@ -33,10 +33,9 @@ services:
   sitespeed.io:
     image: sitespeedio/sitespeed.io
     command: -V
-    privileged: true
     shm_size: 1g
     volumes:
-      - ./sitespeedio:/sitespeed.io
+      - ./sitespeed:/sitespeed.io/
 
 volumes:
   grafana_data: {}
