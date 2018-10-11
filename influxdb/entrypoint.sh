@@ -10,6 +10,7 @@ if [ ! -f "/var/lib/influxdb/.init" ]; then
     influx -host=localhost -port=8086 -execute="CREATE USER ${INFLUX_USER} WITH PASSWORD '${INFLUX_PASSWORD}' WITH ALL PRIVILEGES"
     influx -host=localhost -port=8086 -execute="CREATE DATABASE ${INFLUX_DB}"    
     influx -host=localhost -port=8086 -execute="CREATE DATABASE collectd"    
+    influx -host=localhost -port=8086 -execute="CREATE DATABASE sitespeedio"    
     
     touch "/var/lib/influxdb/.init"
 
