@@ -30,9 +30,36 @@ services:
       - grafana_data:/var/lib/grafana
       - grafana-conf:/etc/grafana/
     restart: always
-
+  sitespeed.io:
+      image: sitespeedio/sitespeed.io
+      container_name: sitespeed.io
+      command: -V
+      privileged: true
+      shm_size: 1g
+      volumes:
+            - sitespeed:/sitespeed.io/
+  graphite:
+      image: sitespeedio/graphite
+      container_name: graphite
+      ports:
+        - "2003:2003"
+        - "8080:80"
+      restart: always
+      volumes:
+        - whisper:/opt/graphite/storage/whisper
+      restart: always
+  grafana-setup:
+      image: sitespeedio/grafana-bootstrap
+      container_name: grafana-setup
+      links:
+        - grafana
+      environment:
+        - GF_PASSWORD=admin
+        - GF_USER=admin
 volumes:
-  grafana_data: {}
-  grafana-conf: {}
-  influxdb_data: {}
-  collectd_data: {}
+  grafana_data:   {}
+  grafana-conf:   {}
+  influxdb_data:  {}
+  collectd_data:  {}
+  whisper:        {}
+  sitespeed:      {}
