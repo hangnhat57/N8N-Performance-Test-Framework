@@ -5,6 +5,6 @@
   "access": "proxy",
   "user": "$INFLUX_USER",
   "password": "$INFLUX_PASSWORD",
-  "database": "$INFLUX_DB",
+  "database": "jmeter",
   "basicAuth": false
 }
