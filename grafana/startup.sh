@@ -15,7 +15,10 @@ print_header() {
 
 wait_for_api() {
   echo -n "Waiting for Grafana API "
-
+  if [ $(dpkg-query -W -f='${Status}' curl 2>/dev/null | grep -c "ok installed") -eq 0 ];
+  then
+     apt-get update &&  apt-get install curl -y
+  fi
   curl -s -f -u $GF_USER:$GF_PASSWORD ${GF_API}/datasources &> /dev/null
   while [ $? -ne 0 ]; do
     echo -n "."

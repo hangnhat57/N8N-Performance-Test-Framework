@@ -1,0 +1,10 @@
+{
+  "name": "Sitespeed",
+  "type": "influxdb",
+  "url": "http://influxdb:8086",
+  "access": "proxy",
+  "user": "$INFLUX_USER",
+  "password": "$INFLUX_PASSWORD",
+  "database": "sitespeed",
+  "basicAuth": false
+}
