@@ -1,0 +1,25 @@
+{
+  "browsertime": {
+    "iterations": 1,
+    "browser": "chrome",
+    "cacheClearRaw": true,
+    "connectivity": {
+    "profile": "native"
+      }
+    },
+  "webpagetest": {
+    "host":"webpagetestserver",
+    "location":"Test",
+    "includeRepeatView":true,
+    "runs": 1
+   },
+  "influxdb": {
+    "host": "influxdb",
+    "username":"admin",
+    "password":"admin",
+    "database":"sitespeed",
+    "groupSeparator":".",
+    "tags":"TwentyEA"
+  },
+  "mobile": true
+}

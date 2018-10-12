@@ -41,9 +41,37 @@ services:
       - ./sitespeed:/sitespeed.io/
     links:
       - influxdb
+      - webpagetestserver
+  webpagetestserver:
+    build: ./wptserver
+    container_name: wptserver
+    image: wptserver
+    ports:
+      - "4000:80"
+    volumes:
+      - webpagetest-results:/var/www/html/results/
+      - webpagetest-settings:/var/www/html/settings/
+      - webpagetest-logs:/var/www/html/logs/
+    restart: always
+  webpagetestagent:
+    image: webpagetest/agent
+    container_name: wptagent
+    depends_on:
+      - webpagetestserver
+    ports:
+      - "4001:80"
+    environment:
+      - SERVER_URL=http://wptserver:80/work/
+      - LOCATION=Test
+      - EXTRA_ARGS=-vvvvv --shaper none
+    restart: always
+
 
 volumes:
-  grafana_data: {}
-  grafana-conf: {}
-  influxdb_data: {}
-  collectd_data: {}
+  grafana_data:         {}
+  grafana-conf:         {}
+  influxdb_data:        {}
+  collectd_data:        {}
+  webpagetest-results:  {}
+  webpagetest-settings: {}
+  webpagetest-logs:     {}

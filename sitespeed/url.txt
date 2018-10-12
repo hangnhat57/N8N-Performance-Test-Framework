@@ -1,4 +1,3 @@
-https://tw-ea.twentyci.asia/ HomePage
 https://tw-ea.twentyci.asia/user/home UserHomePage
 https://tw-ea.twentyci.asia/user/explore ExplorePage
 https://tw-ea.twentyci.asia/user/explore/map-view/top-audience?previously_targeted=on&percent=10 ShowMyTopPage
