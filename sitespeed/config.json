@@ -1,18 +1,22 @@
 {
   "browsertime": {
     "iterations": 1,
-    "browser": "chrome",
+    "browser": "firefox",
+    "cacheClearRaw": true,
     "connectivity": {
-     "profile": "3g"
+     "profile": "native"
     }
   },
   "webpagetest": {
-   "key":"-------------------",
-   "runs": 1
-  },
-
+             "key":"<APIKEY>",
+                "runs": 1
+                  },
  "influxdb": {
-  "host": "influxdb"
+  "host": "influxdb",
+  "username":"admin",
+  "password":"admin",
+  "database":"sitespeed",
+  "tags": "twentyci"
  },
   "mobile": true
 }

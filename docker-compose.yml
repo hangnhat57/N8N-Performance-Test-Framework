@@ -39,6 +39,8 @@ services:
     shm_size: 1g
     volumes:
       - ./sitespeed:/sitespeed.io/
+    links:
+      - influxdb
 
 volumes:
   grafana_data: {}
